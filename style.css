@@ -1,85 +1,477 @@
-/*========================================
-          ACTION GALLERY
-=========================================*/
+/* ============================================
+   ASSIGNMENT — EXTERNAL STYLESHEET
+   styles.css
 
-#gallery{
+   This file controls ALL visual styling.
+   The HTML file links to this using:
+   <link rel="stylesheet" href="styles.css">
 
-    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
-    padding:70px 50px;
+   CSS Rules follow this format:
+   selector { property: value; }
+============================================ */
 
+/* ── GOOGLE FONT IMPORT ──
+   We load "Inter" from Google's font server.
+   This gives us a clean modern font without
+   installing anything.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* ── UNIVERSAL RESET ──
+   By default browsers add spacing to elements.
+   We remove that so WE control all spacing ourselves.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* padding stays INSIDE the element width */
 }
 
-#gallery h2{
-
-    text-align:center;
-    color:#FFD700;
-    font-size:42px;
-    margin-bottom:15px;
-
+/* ── BODY ──
+   Sets the default look for the whole page.
+*/
+body {
+    font-family: 'Inter', Arial, sans-serif; /* Inter first, Arial as fallback */
+    background: #f0f4ff;                     /* light blue-grey background */
+    color: #222;                              /* dark grey default text */
+    font-size: 16px;
+    line-height: 1.6;                         /* comfortable reading spacing */
 }
 
-.gallery-text{
+/* ════════════════════════════════════════
+   SEMANTIC ELEMENT STYLES
+   We style the HTML5 semantic tags directly.
+   Semantic = tags that DESCRIBE their content,
+   not just how they look.
+════════════════════════════════════════ */
 
-    text-align:center;
-    color:#d1d5db;
-    font-size:18px;
-    margin-bottom:45px;
-
+/* ── <header> ── Top of the page */
+header {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 50px 20px 30px;
 }
 
-.gallery-container{
-
-    display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap:30px;
-    flex-wrap:wrap;
-
+header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
-.movie-card{
-
-    width:330px;
-    background:#ffffff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.4);
-    transition:.3s;
-
+header p {
+    font-size: 17px;
+    opacity: 0.85;
 }
 
-.movie-card:hover{
-
-    transform:translateY(-10px);
-    box-shadow:0 0 25px gold;
-
+/* ── <nav> ── Navigation bar */
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;  /* stays at top when scrolling */
+    top: 0;
+    z-index: 100;
 }
 
-.movie-card img{
-
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    display:block;
-
+nav a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s; /* smooth hover effect */
 }
 
-.movie-info{
-
-    padding:20px;
-
+nav a:hover {
+    background: #1e3a8a;
+    color: white;
 }
 
-.movie-info h3{
-
-    color:#111827;
-    margin-bottom:10px;
-
+/* ── <main> ── The main page content wrapper */
+main {
+    max-width: 960px;       /* never wider than 960px */
+    margin: 40px auto;      /* centred horizontally */
+    padding: 0 20px;
 }
 
-.movie-info p{
+/* ── <section> ── Each content block */
+section {
+    background: white;
+    border-radius: 14px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
 
-    color:#555;
-    line-height:1.6;
+/* ── <article> ── A self-contained piece of content */
+article {
+    background: #f8faff;
+    border-left: 4px solid #2563eb; /* blue left border to stand out */
+    padding: 20px 24px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 16px;
+}
 
+article h3 {
+    color: #1e3a8a;
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+article p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* ── <aside> ── Side information / tip box */
+aside {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #78350f;
+}
+
+aside strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+/* ── <figure> and <figcaption> ── Images with captions */
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 13px;
+    color: #888;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* ── <footer> ── Bottom of the page */
+footer {
+    background: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 28px;
+    font-size: 13px;
+    margin-top: 40px;
+}
+
+footer strong {
+    color: white;
+}
+
+/* ── <time> ── Dates and times */
+time {
+    background: #dbeafe;
+    color: #1e3a8a;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* ── <mark> ── Highlighted text */
+mark {
+    background: #fef08a;
+    color: #713f12;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+/* ════════════════════════════════════════
+   ID STYLES
+   IDs are unique — only ONE element per page
+   can have a given ID. We select them with #
+   Example: #page-title { ... }
+════════════════════════════════════════ */
+
+/* The main heading inside a section */
+#page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* The about section specifically */
+#about {
+    border-top: 4px solid #2563eb;
+}
+
+/* The gallery section */
+#gallery {
+    text-align: center;
+}
+
+/* The form section */
+#form-section {
+    background: linear-gradient(to bottom, #f8faff, white);
+}
+
+/* ════════════════════════════════════════
+   CLASS STYLES
+   Classes can be used on MANY elements.
+   We select them with a dot.
+   Example: .card { ... }
+════════════════════════════════════════ */
+
+/* ── .section-title ── Heading at top of each section */
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+}
+
+/* ── .section-sub ── Subtitle under a section title */
+.section-sub {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ── .badge ── Small coloured label */
+.badge {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ── .img-grid ── 3-column image layout */
+.img-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+/* ── .img-card ── Each image container */
+.img-card {
+    border-radius: 12px;
+    overflow: hidden;            /* keeps image inside rounded corners */
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transition: transform 0.3s;  /* smooth zoom effect on hover */
+    background: #e2e8f0;         /* shows while image loads */
+}
+
+.img-card:hover {
+    transform: scale(1.03); /* slight zoom on hover */
+}
+
+/* ── .img-card img ── The actual image inside the card */
+.img-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;  /* crop image to fill without stretching */
+    display: block;
+    /* IMAGE LOADING — lazy loading is in the HTML attribute,
+       but we add a smooth fade-in via animation */
+    animation: fadeIn 0.6s ease;
+}
+
+/* Fade-in animation for images when they load */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── .img-placeholder ── Shows while image is loading ──
+   When loading="lazy" is set, the browser delays loading
+   the image until the user scrolls near it. This class
+   gives the box a visible size so the layout doesn't jump.
+*/
+.img-card {
+    min-height: 200px;
+}
+
+/* ── .form-group ── Wraps each label + input pair */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* ── .form-label ── The text label above each input */
+.form-label {
+    display: block;             /* forces it onto its own line */
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+}
+
+/* ── .form-input ── Every text/email/phone/date/search input */
+.form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #222;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+}
+
+/* Blue glow when user clicks into a field */
+.form-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* ── .form-row ── Puts two inputs side by side */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ── .radio-group and .checkbox-group ── Option containers */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+/* Each individual radio/checkbox option */
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+}
+
+/* Make radio and checkbox inputs bigger and blue */
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: #2563eb; /* colours the tick/dot blue */
+    cursor: pointer;
+}
+
+/* ── .file-input ── File upload field styling */
+.file-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed #bfdbfe; /* dashed blue border */
+    border-radius: 8px;
+    font-size: 14px;
+    color: #2563eb;
+    background: #eff6ff;
+    cursor: pointer;
+}
+
+.file-input:hover {
+    border-color: #2563eb;
+    background: #dbeafe;
+}
+
+/* ── .submit-btn ── The form submit button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(120deg, #1e3a8a, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', Arial, sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.03em;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.35);
+}
+
+/* ── .highlight-box ── A coloured callout box */
+.highlight-box {
+    background: #dbeafe;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    color: #1e3a8a;
+    font-size: 15px;
+}
+
+/* ── .services-grid ── 3-column services layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* ── .service-card ── Each service box */
+.service-card {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 22px 18px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.service-card:hover {
+    box-shadow: 0 6px 20px rgba(37,99,235,0.12);
+}
+
+.service-card .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.service-card h4 {
+    color: #1e3a8a;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* ── MOBILE RESPONSIVE ──
+   On small screens (phones), switch from 3 columns
+   to 1 column so content doesn't overflow.
+*/
+@media (max-width: 700px) {
+    .form-row { grid-template-columns: 1fr; }
+    .img-grid  { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 28px; }
 }
