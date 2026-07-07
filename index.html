@@ -1,54 +1,44 @@
 <!DOCTYPE html>
 <!--
     ASSIGNMENT — SEMANTIC HTML + EXTERNAL CSS + FORM
-    Student: Pluscase Madoya
-    Admission: 25-0681
-    Course: DICT — Daystar University
+    Student: Pluscase Madoya | Admission: 25-0681
+    Course: DICT — Web Technologies | Daystar University
 
-    REQUIREMENTS COVERED:
-    1. 10 Semantic Elements: header, nav, main, section,
-       article, aside, figure, figcaption, footer, time, mark
-    2. External CSS linked via <link> tag
-    3. Classes (.section-title, .form-group etc.) and
-       IDs (#about, #gallery, #form-section) used throughout
-    4. Best practices: indentation, comments, semantic naming
-    5. Form with all required inputs + file + radio + checkbox
-       + 3 images with lazy loading
+    REQUIREMENTS:
+    1. 10 Semantic Elements (header, nav, main, section,
+       article, aside, figure, figcaption, footer, time, mark)
+    2. External CSS — linked via <link> tag
+    3. Classes and IDs throughout
+    4. Best practices — indentation + comments
+    5. Full form + 3 images with lazy loading
 -->
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- viewport makes the page work properly on mobile phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXASITE — Web Agency</title>
-
-    <!--
-        EXTERNAL CSS LINK (Requirement 2)
-        All styling lives in styles.css, not in this file.
-        HTML = Structure. CSS = Appearance. Keep them separate.
-    -->
+    <!-- EXTERNAL CSS LINK (Requirement 2) -->
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-    <!-- ════════════════════════════════════════════════
-         SEMANTIC ELEMENT 1: <header>
-         Represents the top/introductory section of the page.
-         Always used for site title, logo, or tagline.
-    ════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════
+         SEMANTIC 1: <header>
+         Top of page — site title and tagline
+    ══════════════════════════════ -->
     <header>
+        <div class="header-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Currently accepting new projects
+        </div>
         <h1>NEXASITE Web Agency</h1>
-        <p>Professional Websites &amp; Digital Marketing Solutions</p>
+        <p>Professional Websites &amp; Digital Marketing — English &amp; French</p>
     </header>
 
-    <!-- ════════════════════════════════════════════════
-         SEMANTIC ELEMENT 2: <nav>
-         Represents a block of navigation links.
-         Screen readers use this to help visually impaired users
-         skip straight to the navigation menu.
-    ════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════
+         SEMANTIC 2: <nav>
+         Navigation links — sticky at top
+    ══════════════════════════════ -->
     <nav>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -57,41 +47,36 @@
         <a href="#form-section">Contact</a>
     </nav>
 
-    <!-- ════════════════════════════════════════════════
-         SEMANTIC ELEMENT 3: <main>
-         The primary content of the page.
-         There should only be ONE <main> per page.
-    ════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════
+         SEMANTIC 3: <main>
+         Primary content of the page
+    ══════════════════════════════ -->
     <main>
 
-        <!-- ════════════════════════════════════════
-             SECTION 1 — ABOUT
-             ID: #about (unique identifier, styled in CSS)
-             SEMANTIC ELEMENT 4: <section>
-             Groups related content under one topic.
-        ════════════════════════════════════════ -->
+        <!-- SECTION 1 — ABOUT | ID: #about -->
+        <!-- SEMANTIC 4: <section> -->
         <section id="about">
 
-            <!-- .badge is a CLASS — reusable on many elements -->
+            <!-- .badge = CLASS -->
             <span class="badge">About Us</span>
 
-            <!-- #page-title is an ID — unique to this one element -->
+            <!-- #page-title = ID -->
             <h2 id="page-title">Who We Are</h2>
-
-            <!-- .section-sub is a CLASS for subtitle text -->
             <p class="section-sub">Building the web, one site at a time</p>
 
-            <!-- ── <aside> ── SEMANTIC ELEMENT 5
-                 Side note or supplementary information.
-                 Not the main content — extra info related to it.
+            <!-- SEMANTIC 5: <aside>
+                 Supplementary content — a tip box
             -->
             <aside>
-                <strong>💡 Did You Know?</strong>
-                Over 5 billion people use the internet today.
-                Your business needs a website to reach them.
+                <span class="aside-icon">💡</span>
+                <div>
+                    <strong>Did You Know?</strong>
+                    Over 5 billion people use the internet today.
+                    Every business needs a website to reach them.
+                </div>
             </aside>
 
-            <!-- .highlight-box is a CLASS for a coloured info box -->
+            <!-- SEMANTIC 6: <mark> — highlighted important text -->
             <div class="highlight-box">
                 We are a <mark>bilingual web agency</mark> serving clients in
                 English and French across Africa and Europe. Our team combines
@@ -99,166 +84,122 @@
                 that actually grow your business.
             </div>
 
-            <!--
-                <mark> = SEMANTIC ELEMENT 6
-                Highlights text that is important or relevant.
-                Like a highlighter pen on paper.
-            -->
-
-            <p>
+            <p style="color: var(--muted); font-size: 15px;">
                 Founded in Nairobi, Kenya, NEXASITE works with small and
-                medium businesses worldwide. We deliver professional websites
+                medium businesses worldwide — delivering professional websites
                 fast, at prices that make sense for growing businesses.
             </p>
 
         </section>
-        <!-- end #about -->
 
-
-        <!-- ════════════════════════════════════════
-             SECTION 2 — SERVICES
-             ID: #services
-        ════════════════════════════════════════ -->
+        <!-- SECTION 2 — SERVICES | ID: #services -->
         <section id="services">
 
             <span class="badge">Services</span>
             <h2 class="section-title">What We Offer</h2>
             <p class="section-sub">Everything your business needs online</p>
 
-            <!-- .services-grid is a CLASS for the 3-column grid layout -->
+            <!-- .services-grid = CLASS (3-column grid) -->
             <div class="services-grid">
-
-                <!-- Each .service-card is a CLASS — used 6 times here -->
+                <!-- Each .service-card = CLASS -->
                 <div class="service-card">
-                    <div class="icon">🎨</div>
+                    <span class="icon">🎨</span>
                     <h4>Website Design</h4>
-                    <p>Custom designs built from scratch.</p>
+                    <p>Custom designs built from scratch for every client.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">💻</div>
+                    <span class="icon">💻</span>
                     <h4>Web Development</h4>
-                    <p>Fast, clean HTML CSS Python code.</p>
+                    <p>Fast, clean HTML, CSS and Python code.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">🛒</div>
+                    <span class="icon">🛒</span>
                     <h4>E-Commerce</h4>
-                    <p>Online stores with payment systems.</p>
+                    <p>Online stores with full payment systems.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">🔍</div>
-                    <h4>SEO</h4>
-                    <p>Get found on Google searches.</p>
+                    <span class="icon">🔍</span>
+                    <h4>SEO Optimization</h4>
+                    <p>Get found on Google and grow organically.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">📱</div>
+                    <span class="icon">📱</span>
                     <h4>Digital Marketing</h4>
-                    <p>Facebook, Instagram, Google Ads.</p>
+                    <p>Facebook, Instagram, and Google Ads campaigns.</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="icon">🛠️</div>
+                    <span class="icon">🛠️</span>
                     <h4>Maintenance</h4>
-                    <p>Monthly updates and support.</p>
+                    <p>Monthly updates, security, and support plans.</p>
                 </div>
-
             </div>
-            <!-- end .services-grid -->
 
         </section>
-        <!-- end #services -->
 
-
-        <!-- ════════════════════════════════════════
-             SECTION 3 — BLOG / ARTICLES
-             ID: #blog
-             Uses <article> and <time> semantic elements.
-        ════════════════════════════════════════ -->
+        <!-- SECTION 3 — BLOG | ID: #blog -->
         <section id="blog">
 
             <span class="badge">Blog</span>
             <h2 class="section-title">Latest Articles</h2>
-            <p class="section-sub">Tips and news from our team</p>
+            <p class="section-sub">Tips and insights from our team</p>
 
-            <!-- ── <article> ── SEMANTIC ELEMENT 7
-                 A self-contained piece of content that could
-                 stand alone — like a blog post or news article.
-                 If you removed it from the page, it would still
-                 make sense on its own.
+            <!-- SEMANTIC 7: <article>
+                 Self-contained piece of content — a blog post
             -->
             <article>
-                <!--
-                    <time> = SEMANTIC ELEMENT 8
-                    Represents a specific date or time.
-                    The datetime attribute is machine-readable.
-                    Screen readers and search engines use it.
+                <!-- SEMANTIC 8: <time>
+                     Machine-readable date using datetime=""
                 -->
-                <time datetime="2026-06-20">June 20, 2026</time>
+                <time datetime="2026-06-20">📅 June 20, 2026</time>
                 <h3>Why Every Small Business Needs a Website in 2026</h3>
                 <p>
-                    Over 80% of customers search online before buying from
-                    a local business. Without a website, you are invisible
-                    to the majority of your potential customers.
+                    Over 80% of customers search online before buying locally.
+                    Without a website, you are invisible to your potential customers.
                 </p>
             </article>
 
             <article>
-                <time datetime="2026-06-15">June 15, 2026</time>
+                <time datetime="2026-06-15">📅 June 15, 2026</time>
                 <h3>HTML vs Website Builders — Which Is Better?</h3>
                 <p>
-                    Website builders like Wix are fast but limited.
-                    Custom HTML gives you full control, better performance,
-                    and a site that is truly yours.
+                    Website builders are fast but limited. Custom HTML gives
+                    you full control, better performance, and a site that's truly yours.
                 </p>
             </article>
 
             <article>
-                <time datetime="2026-06-10">June 10, 2026</time>
+                <time datetime="2026-06-10">📅 June 10, 2026</time>
                 <h3>The Power of Bilingual Websites for African Businesses</h3>
                 <p>
-                    French is spoken by over 300 million people across Africa
-                    and Europe. A bilingual website doubles your potential market
-                    without doubling your cost.
+                    French is spoken by 300+ million people across Africa and
+                    Europe. A bilingual website doubles your market at no extra cost.
                 </p>
             </article>
 
         </section>
-        <!-- end #blog -->
 
-
-        <!-- ════════════════════════════════════════
-             SECTION 4 — IMAGE GALLERY
-             ID: #gallery (unique, styled in CSS)
-             Uses <figure> and <figcaption> semantic elements.
-        ════════════════════════════════════════ -->
+        <!-- SECTION 4 — GALLERY | ID: #gallery -->
         <section id="gallery">
 
             <span class="badge">Gallery</span>
             <h2 class="section-title">Our Projects</h2>
-            <p class="section-sub">Real work for real clients</p>
+            <p class="section-sub">Click any image to explore — hover to zoom</p>
 
-            <!-- .img-grid = CLASS for 3-column image layout -->
+            <!-- .img-grid = CLASS (3-column image layout) -->
             <div class="img-grid">
 
-                <!--
-                    IMAGE 1
-                    SEMANTIC ELEMENT 9: <figure>
-                    Groups an image with its caption.
-                    <figcaption> = SEMANTIC ELEMENT 10
-                    The caption that belongs to the <figure>.
-
-                    IMAGE LOADING (Requirement 5):
-                    loading="lazy" tells the browser NOT to download
-                    this image until the user scrolls near it.
-                    This makes the page load much faster because
-                    images below the screen are not loaded immediately.
-                    Only images the user actually sees get downloaded.
+                <!-- SEMANTIC 9: <figure>
+                     Groups an image with its description.
                 -->
                 <div class="img-card">
                     <figure>
+                        <!--
+                            IMAGE LOADING (Requirement 5):
+                            loading="lazy" = browser only downloads this
+                            image when the user scrolls near it.
+                            This makes the page load much faster.
+                            Images the user never sees are never downloaded.
+                        -->
                         <img
                             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80"
                             alt="Developer coding on a laptop"
@@ -266,11 +207,14 @@
                             width="600"
                             height="200"
                         >
+                        <!-- SEMANTIC 10: <figcaption>
+                             The caption that belongs to the <figure>
+                        -->
                         <figcaption>Web Development — Nairobi, Kenya</figcaption>
                     </figure>
                 </div>
 
-                <!-- IMAGE 2 — also lazy loaded -->
+                <!-- IMAGE 2 — lazy loaded -->
                 <div class="img-card">
                     <figure>
                         <img
@@ -284,12 +228,12 @@
                     </figure>
                 </div>
 
-                <!-- IMAGE 3 — also lazy loaded -->
+                <!-- IMAGE 3 — lazy loaded -->
                 <div class="img-card">
                     <figure>
                         <img
                             src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80"
-                            alt="Clean web design workspace"
+                            alt="Clean web design workspace setup"
                             loading="lazy"
                             width="600"
                             height="200"
@@ -299,51 +243,27 @@
                 </div>
 
             </div>
-            <!-- end .img-grid -->
 
         </section>
-        <!-- end #gallery -->
 
-
-        <!-- ════════════════════════════════════════
-             SECTION 5 — CONTACT FORM
-             ID: #form-section
-
-             REQUIREMENT 5: Form with all inputs including:
-             - First name, Last name, Email, Phone, Date,
-               Search bar, File attachment, Radio buttons,
-               Checkboxes, Submit button
-        ════════════════════════════════════════ -->
+        <!-- SECTION 5 — CONTACT FORM | ID: #form-section -->
         <section id="form-section">
 
             <span class="badge">Contact Us</span>
             <h2 class="section-title">Get In Touch</h2>
-            <p class="section-sub">Fill in the form and we will reply within 24 hours</p>
+            <p class="section-sub">Fill in the form — we reply within 24 hours</p>
 
-            <!--
-                <form> wraps all the input elements.
-                action="#" means the form stays on this page when submitted.
-                method="post" means form data is sent securely.
-            -->
             <form action="#" method="post">
 
-                <!-- ── FIRST NAME + LAST NAME ── side by side -->
-                <!-- .form-row = CLASS — creates a 2-column grid -->
+                <!-- First Name + Last Name — side by side -->
+                <!-- .form-row = CLASS (2-column grid) -->
                 <div class="form-row">
 
-                    <!-- .form-group = CLASS — wraps label + input -->
+                    <!-- .form-group = CLASS (wraps label + input) -->
                     <div class="form-group">
-                        <!--
-                            <label> links to the input using "for" and "id".
-                            Clicking the label focuses the input — better UX.
-                        -->
+                        <!-- for="first-name" links label to input by ID -->
                         <label class="form-label" for="first-name">First Name</label>
-                        <!--
-                            .form-input = CLASS — styles all text inputs
-                            type="text" = accepts any text
-                            required = browser won't submit if empty
-                            placeholder = grey hint text inside the field
-                        -->
+                        <!-- .form-input = CLASS applied to all text inputs -->
                         <input
                             class="form-input"
                             type="text"
@@ -367,15 +287,10 @@
                     </div>
 
                 </div>
-                <!-- end .form-row -->
 
-                <!-- ── EMAIL ── -->
+                <!-- Email — type="email" auto-validates format -->
                 <div class="form-group">
                     <label class="form-label" for="email">Email Address</label>
-                    <!--
-                        type="email" makes the browser validate the email
-                        format automatically — must contain @ and a dot.
-                    -->
                     <input
                         class="form-input"
                         type="email"
@@ -386,14 +301,9 @@
                     >
                 </div>
 
-                <!-- ── PHONE ── -->
+                <!-- Phone — type="tel" opens numeric keyboard on mobile -->
                 <div class="form-group">
                     <label class="form-label" for="phone">Phone Number</label>
-                    <!--
-                        type="tel" is specifically for phone numbers.
-                        On mobile phones this opens the numeric keypad.
-                        pattern="[0-9]{10}" means exactly 10 digits only.
-                    -->
                     <input
                         class="form-input"
                         type="tel"
@@ -405,13 +315,9 @@
                     >
                 </div>
 
-                <!-- ── DATE ── -->
+                <!-- Date — type="date" shows a calendar picker -->
                 <div class="form-group">
                     <label class="form-label" for="meeting-date">Preferred Meeting Date</label>
-                    <!--
-                        type="date" shows a calendar picker in the browser.
-                        The user clicks to choose a date — no typing needed.
-                    -->
                     <input
                         class="form-input"
                         type="date"
@@ -420,14 +326,9 @@
                     >
                 </div>
 
-                <!-- ── SEARCH BAR ── -->
+                <!-- Search — type="search" shows a clear button -->
                 <div class="form-group">
                     <label class="form-label" for="search">Search Our Services</label>
-                    <!--
-                        type="search" is similar to text but
-                        shows a clear (×) button on some browsers,
-                        and is semantically correct for a search field.
-                    -->
                     <input
                         class="form-input"
                         type="search"
@@ -437,88 +338,61 @@
                     >
                 </div>
 
-                <!-- ── RADIO BUTTONS ──
-                     Radio buttons let the user pick ONLY ONE option.
-                     All radio buttons in a group share the same name="".
-                     The one selected sends its value="" to the server.
-                -->
+                <!-- Radio Buttons — pick ONE option only -->
                 <div class="form-group">
                     <label class="form-label">Select a Service</label>
-
-                    <!-- .radio-group = CLASS — lays options out in a row -->
+                    <!-- .radio-group = CLASS -->
                     <div class="radio-group">
-
-                        <!-- .option-item = CLASS — wraps each radio + label -->
+                        <!-- All share name="service" — only one can be selected -->
                         <label class="option-item">
                             <input type="radio" name="service" value="design">
                             Website Design
                         </label>
-
                         <label class="option-item">
                             <input type="radio" name="service" value="development">
                             Web Development
                         </label>
-
                         <label class="option-item">
                             <input type="radio" name="service" value="seo">
                             SEO
                         </label>
-
                         <label class="option-item">
                             <input type="radio" name="service" value="marketing">
                             Digital Marketing
                         </label>
-
                     </div>
-                    <!-- end .radio-group -->
                 </div>
 
-                <!-- ── CHECKBOXES ──
-                     Checkboxes let the user pick MULTIPLE options.
-                     Each checkbox has its own name="" and value="".
-                     Unlike radio buttons, they are all independent.
-                -->
+                <!-- Checkboxes — pick MULTIPLE options -->
                 <div class="form-group">
-                    <label class="form-label">How did you hear about us? (select all that apply)</label>
-
-                    <!-- .checkbox-group = CLASS — same styling as radio group -->
+                    <label class="form-label">How did you hear about us?</label>
+                    <!-- .checkbox-group = CLASS -->
                     <div class="checkbox-group">
-
+                        <!-- Each checkbox is independent — multiple can be ticked -->
                         <label class="option-item">
                             <input type="checkbox" name="source" value="google">
                             Google Search
                         </label>
-
                         <label class="option-item">
                             <input type="checkbox" name="source" value="instagram">
                             Instagram
                         </label>
-
                         <label class="option-item">
                             <input type="checkbox" name="source" value="friend">
                             Friend / Referral
                         </label>
-
                         <label class="option-item">
                             <input type="checkbox" name="source" value="linkedin">
                             LinkedIn
                         </label>
-
                         <label class="option-item">
                             <input type="checkbox" name="source" value="other">
                             Other
                         </label>
-
                     </div>
-                    <!-- end .checkbox-group -->
                 </div>
 
-                <!-- ── FILE ATTACHMENT ──
-                     type="file" lets the user upload a document.
-                     accept=".pdf,.doc,.docx,.jpg,.png" restricts
-                     which file types are allowed.
-                     multiple means they can attach more than one file.
-                -->
+                <!-- File Attachment — accept restricts file types -->
                 <div class="form-group">
                     <label class="form-label" for="attachment">Attach a File (optional)</label>
                     <input
@@ -531,41 +405,25 @@
                     >
                 </div>
 
-                <!-- ── SUBMIT BUTTON ──
-                     type="submit" sends the form when clicked.
-                     The browser validates all "required" fields first.
-                     If any are empty or invalid, it shows an error
-                     and does NOT submit.
-                -->
+                <!-- Submit Button — validates all required fields first -->
                 <button type="submit" class="submit-btn">
                     Submit Enquiry →
                 </button>
 
             </form>
-            <!-- end form -->
 
         </section>
-        <!-- end #form-section -->
 
     </main>
-    <!-- end <main> -->
 
-
-    <!-- ════════════════════════════════════════════════
-         SEMANTIC ELEMENT: <footer>
-         The bottom of the page — copyright info, links,
-         contact details. Always at the very end of <body>.
-    ════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════
+         SEMANTIC: <footer>
+         Bottom of page — contact + copyright
+    ══════════════════════════════ -->
     <footer>
-        <p>
-            <strong>NEXASITE Web Agency</strong> — Nairobi, Kenya
-        </p>
-        <p style="margin-top: 6px;">
-            info@nexasite.com &nbsp;|&nbsp; +254 700 000 000
-        </p>
-        <p style="margin-top: 6px;">
-            © 2026 NEXASITE. All Rights Reserved.
-        </p>
+        <div class="footer-logo">NEXASITE</div>
+        <p>Nairobi, Kenya &nbsp;|&nbsp; hello@nexasite.com &nbsp;|&nbsp; +254 700 000 000</p>
+        <p style="margin-top:10px">© 2026 NEXASITE Web Agency. All Rights Reserved.</p>
     </footer>
 
 </body>
