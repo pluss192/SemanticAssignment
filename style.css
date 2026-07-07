@@ -1,68 +1,83 @@
-/*====================================
+/*==================================
         ACTION GALLERY
-=====================================*/
+===================================*/
 
 #gallery{
-    background: linear-gradient(to right,#0f2027,#203a43,#2c5364);
-    padding:60px 40px;
-    text-align:center;
+
+    background:#111827;
+    padding:70px 40px;
+
 }
 
 #gallery h2{
+
+    text-align:center;
     color:#FFD700;
-    font-size:40px;
+    font-size:42px;
     margin-bottom:10px;
+
 }
 
-#gallery p{
-    color:white;
-    margin-bottom:40px;
+.gallery-text{
+
+    color:#ddd;
+    text-align:center;
     font-size:18px;
+    margin-bottom:40px;
+
 }
 
 .gallery-container{
 
     display:flex;
     justify-content:center;
-    align-items:center;
     gap:30px;
     flex-wrap:wrap;
 
 }
 
-.movie-card{
+.card{
 
-    background:#1d1d1d;
-    width:330px;
+    width:320px;
+    background:white;
     border-radius:15px;
     overflow:hidden;
     transition:0.4s;
-    box-shadow:0 10px 25px rgba(0,0,0,.6);
+    box-shadow:0 8px 20px rgba(0,0,0,.5);
 
 }
 
-.movie-card:hover{
+.card:hover{
 
     transform:translateY(-10px);
-    box-shadow:0 0 30px #FFD700;
+    box-shadow:0 0 25px gold;
 
 }
 
-.movie-card img{
+.card img{
 
     width:100%;
-    height:230px;
+    height:220px;
     object-fit:cover;
-    display:block;
 
 }
 
-.movie-card figcaption{
+.card-content{
 
     padding:20px;
-    color:white;
-    font-size:22px;
-    font-weight:bold;
-    background:#111;
+
+}
+
+.card-content h3{
+
+    color:#111827;
+    margin-bottom:10px;
+
+}
+
+.card-content p{
+
+    color:#555;
+    line-height:1.6;
 
 }
