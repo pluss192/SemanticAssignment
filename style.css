@@ -1,1 +1,22 @@
+/* Image Gallery */
+.gallery {
+    text-align: center;
+    margin: 20px;
+}
 
+.gallery figure {
+    display: inline-block;
+    margin: 15px;
+}
+
+.gallery img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    border: 2px solid #0b5394;
+}
+
+.gallery figcaption {
+    margin-top: 8px;
+    font-weight: bold;
+}
