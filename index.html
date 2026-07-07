@@ -1,70 +1,572 @@
-<!-- ==========================================
-     ACTION GALLERY SECTION
-========================================== -->
+<!DOCTYPE html>
+<!--
+    ASSIGNMENT — SEMANTIC HTML + EXTERNAL CSS + FORM
+    Student: Pluscase Madoya
+    Admission: 25-0681
+    Course: DICT — Daystar University
 
-<section id="gallery">
+    REQUIREMENTS COVERED:
+    1. 10 Semantic Elements: header, nav, main, section,
+       article, aside, figure, figcaption, footer, time, mark
+    2. External CSS linked via <link> tag
+    3. Classes (.section-title, .form-group etc.) and
+       IDs (#about, #gallery, #form-section) used throughout
+    4. Best practices: indentation, comments, semantic naming
+    5. Form with all required inputs + file + radio + checkbox
+       + 3 images with lazy loading
+-->
 
-    <h2>🎬 ActionFlix Collection</h2>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport makes the page work properly on mobile phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXASITE — Web Agency</title>
 
-    <p class="gallery-text">
-        Experience thrilling action scenes, military operations,
-        and epic adventures from around the world.
-    </p>
+    <!--
+        EXTERNAL CSS LINK (Requirement 2)
+        All styling lives in styles.css, not in this file.
+        HTML = Structure. CSS = Appearance. Keep them separate.
+    -->
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-    <div class="gallery-container">
+<body>
 
-        <!-- Card 1 -->
-        <article class="movie-card">
+    <!-- ════════════════════════════════════════════════
+         SEMANTIC ELEMENT 1: <header>
+         Represents the top/introductory section of the page.
+         Always used for site title, logo, or tagline.
+    ════════════════════════════════════════════════ -->
+    <header>
+        <h1>NEXASITE Web Agency</h1>
+        <p>Professional Websites &amp; Digital Marketing Solutions</p>
+    </header>
 
-            <img src="images/action1.jpg"
-                 alt="Battle Zone"
-                 loading="eager">
+    <!-- ════════════════════════════════════════════════
+         SEMANTIC ELEMENT 2: <nav>
+         Represents a block of navigation links.
+         Screen readers use this to help visually impaired users
+         skip straight to the navigation menu.
+    ════════════════════════════════════════════════ -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#blog">Blog</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#form-section">Contact</a>
+    </nav>
 
-            <div class="movie-info">
-                <h3>Battle Zone</h3>
+    <!-- ════════════════════════════════════════════════
+         SEMANTIC ELEMENT 3: <main>
+         The primary content of the page.
+         There should only be ONE <main> per page.
+    ════════════════════════════════════════════════ -->
+    <main>
 
-                <p>
-                    A fierce battlefield where courage and strategy
-                    determine victory.
-                </p>
+        <!-- ════════════════════════════════════════
+             SECTION 1 — ABOUT
+             ID: #about (unique identifier, styled in CSS)
+             SEMANTIC ELEMENT 4: <section>
+             Groups related content under one topic.
+        ════════════════════════════════════════ -->
+        <section id="about">
+
+            <!-- .badge is a CLASS — reusable on many elements -->
+            <span class="badge">About Us</span>
+
+            <!-- #page-title is an ID — unique to this one element -->
+            <h2 id="page-title">Who We Are</h2>
+
+            <!-- .section-sub is a CLASS for subtitle text -->
+            <p class="section-sub">Building the web, one site at a time</p>
+
+            <!-- ── <aside> ── SEMANTIC ELEMENT 5
+                 Side note or supplementary information.
+                 Not the main content — extra info related to it.
+            -->
+            <aside>
+                <strong>💡 Did You Know?</strong>
+                Over 5 billion people use the internet today.
+                Your business needs a website to reach them.
+            </aside>
+
+            <!-- .highlight-box is a CLASS for a coloured info box -->
+            <div class="highlight-box">
+                We are a <mark>bilingual web agency</mark> serving clients in
+                English and French across Africa and Europe. Our team combines
+                technology, communication, and creativity to build websites
+                that actually grow your business.
             </div>
 
-        </article>
+            <!--
+                <mark> = SEMANTIC ELEMENT 6
+                Highlights text that is important or relevant.
+                Like a highlighter pen on paper.
+            -->
 
-        <!-- Card 2 -->
-        <article class="movie-card">
+            <p>
+                Founded in Nairobi, Kenya, NEXASITE works with small and
+                medium businesses worldwide. We deliver professional websites
+                fast, at prices that make sense for growing businesses.
+            </p>
 
-            <img src="images/action2.jpg"
-                 alt="Operation Thunder"
-                 loading="lazy">
+        </section>
+        <!-- end #about -->
 
-            <div class="movie-info">
-                <h3>Operation Thunder</h3>
 
-                <p>
-                    Elite soldiers embark on a dangerous rescue mission.
-                </p>
+        <!-- ════════════════════════════════════════
+             SECTION 2 — SERVICES
+             ID: #services
+        ════════════════════════════════════════ -->
+        <section id="services">
+
+            <span class="badge">Services</span>
+            <h2 class="section-title">What We Offer</h2>
+            <p class="section-sub">Everything your business needs online</p>
+
+            <!-- .services-grid is a CLASS for the 3-column grid layout -->
+            <div class="services-grid">
+
+                <!-- Each .service-card is a CLASS — used 6 times here -->
+                <div class="service-card">
+                    <div class="icon">🎨</div>
+                    <h4>Website Design</h4>
+                    <p>Custom designs built from scratch.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">💻</div>
+                    <h4>Web Development</h4>
+                    <p>Fast, clean HTML CSS Python code.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🛒</div>
+                    <h4>E-Commerce</h4>
+                    <p>Online stores with payment systems.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🔍</div>
+                    <h4>SEO</h4>
+                    <p>Get found on Google searches.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">📱</div>
+                    <h4>Digital Marketing</h4>
+                    <p>Facebook, Instagram, Google Ads.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🛠️</div>
+                    <h4>Maintenance</h4>
+                    <p>Monthly updates and support.</p>
+                </div>
+
             </div>
+            <!-- end .services-grid -->
 
-        </article>
+        </section>
+        <!-- end #services -->
 
-        <!-- Card 3 -->
-        <article class="movie-card">
 
-            <img src="images/action3.jpg"
-                 alt="Final Mission"
-                 loading="lazy">
+        <!-- ════════════════════════════════════════
+             SECTION 3 — BLOG / ARTICLES
+             ID: #blog
+             Uses <article> and <time> semantic elements.
+        ════════════════════════════════════════ -->
+        <section id="blog">
 
-            <div class="movie-info">
-                <h3>Final Mission</h3>
+            <span class="badge">Blog</span>
+            <h2 class="section-title">Latest Articles</h2>
+            <p class="section-sub">Tips and news from our team</p>
 
+            <!-- ── <article> ── SEMANTIC ELEMENT 7
+                 A self-contained piece of content that could
+                 stand alone — like a blog post or news article.
+                 If you removed it from the page, it would still
+                 make sense on its own.
+            -->
+            <article>
+                <!--
+                    <time> = SEMANTIC ELEMENT 8
+                    Represents a specific date or time.
+                    The datetime attribute is machine-readable.
+                    Screen readers and search engines use it.
+                -->
+                <time datetime="2026-06-20">June 20, 2026</time>
+                <h3>Why Every Small Business Needs a Website in 2026</h3>
                 <p>
-                    The final battle where bravery decides the outcome.
+                    Over 80% of customers search online before buying from
+                    a local business. Without a website, you are invisible
+                    to the majority of your potential customers.
                 </p>
+            </article>
+
+            <article>
+                <time datetime="2026-06-15">June 15, 2026</time>
+                <h3>HTML vs Website Builders — Which Is Better?</h3>
+                <p>
+                    Website builders like Wix are fast but limited.
+                    Custom HTML gives you full control, better performance,
+                    and a site that is truly yours.
+                </p>
+            </article>
+
+            <article>
+                <time datetime="2026-06-10">June 10, 2026</time>
+                <h3>The Power of Bilingual Websites for African Businesses</h3>
+                <p>
+                    French is spoken by over 300 million people across Africa
+                    and Europe. A bilingual website doubles your potential market
+                    without doubling your cost.
+                </p>
+            </article>
+
+        </section>
+        <!-- end #blog -->
+
+
+        <!-- ════════════════════════════════════════
+             SECTION 4 — IMAGE GALLERY
+             ID: #gallery (unique, styled in CSS)
+             Uses <figure> and <figcaption> semantic elements.
+        ════════════════════════════════════════ -->
+        <section id="gallery">
+
+            <span class="badge">Gallery</span>
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-sub">Real work for real clients</p>
+
+            <!-- .img-grid = CLASS for 3-column image layout -->
+            <div class="img-grid">
+
+                <!--
+                    IMAGE 1
+                    SEMANTIC ELEMENT 9: <figure>
+                    Groups an image with its caption.
+                    <figcaption> = SEMANTIC ELEMENT 10
+                    The caption that belongs to the <figure>.
+
+                    IMAGE LOADING (Requirement 5):
+                    loading="lazy" tells the browser NOT to download
+                    this image until the user scrolls near it.
+                    This makes the page load much faster because
+                    images below the screen are not loaded immediately.
+                    Only images the user actually sees get downloaded.
+                -->
+                <div class="img-card">
+                    <figure>
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80"
+                            alt="Developer coding on a laptop"
+                            loading="lazy"
+                            width="600"
+                            height="200"
+                        >
+                        <figcaption>Web Development — Nairobi, Kenya</figcaption>
+                    </figure>
+                </div>
+
+                <!-- IMAGE 2 — also lazy loaded -->
+                <div class="img-card">
+                    <figure>
+                        <img
+                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                            alt="Team collaborating in an office"
+                            loading="lazy"
+                            width="600"
+                            height="200"
+                        >
+                        <figcaption>Team Collaboration — Agency Work</figcaption>
+                    </figure>
+                </div>
+
+                <!-- IMAGE 3 — also lazy loaded -->
+                <div class="img-card">
+                    <figure>
+                        <img
+                            src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80"
+                            alt="Clean web design workspace"
+                            loading="lazy"
+                            width="600"
+                            height="200"
+                        >
+                        <figcaption>Design Studio — NEXASITE HQ</figcaption>
+                    </figure>
+                </div>
+
             </div>
+            <!-- end .img-grid -->
 
-        </article>
+        </section>
+        <!-- end #gallery -->
 
-    </div>
 
-</section>
+        <!-- ════════════════════════════════════════
+             SECTION 5 — CONTACT FORM
+             ID: #form-section
+
+             REQUIREMENT 5: Form with all inputs including:
+             - First name, Last name, Email, Phone, Date,
+               Search bar, File attachment, Radio buttons,
+               Checkboxes, Submit button
+        ════════════════════════════════════════ -->
+        <section id="form-section">
+
+            <span class="badge">Contact Us</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-sub">Fill in the form and we will reply within 24 hours</p>
+
+            <!--
+                <form> wraps all the input elements.
+                action="#" means the form stays on this page when submitted.
+                method="post" means form data is sent securely.
+            -->
+            <form action="#" method="post">
+
+                <!-- ── FIRST NAME + LAST NAME ── side by side -->
+                <!-- .form-row = CLASS — creates a 2-column grid -->
+                <div class="form-row">
+
+                    <!-- .form-group = CLASS — wraps label + input -->
+                    <div class="form-group">
+                        <!--
+                            <label> links to the input using "for" and "id".
+                            Clicking the label focuses the input — better UX.
+                        -->
+                        <label class="form-label" for="first-name">First Name</label>
+                        <!--
+                            .form-input = CLASS — styles all text inputs
+                            type="text" = accepts any text
+                            required = browser won't submit if empty
+                            placeholder = grey hint text inside the field
+                        -->
+                        <input
+                            class="form-input"
+                            type="text"
+                            id="first-name"
+                            name="first_name"
+                            placeholder="e.g. Pluscase"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="last-name">Last Name</label>
+                        <input
+                            class="form-input"
+                            type="text"
+                            id="last-name"
+                            name="last_name"
+                            placeholder="e.g. Madoya"
+                            required
+                        >
+                    </div>
+
+                </div>
+                <!-- end .form-row -->
+
+                <!-- ── EMAIL ── -->
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <!--
+                        type="email" makes the browser validate the email
+                        format automatically — must contain @ and a dot.
+                    -->
+                    <input
+                        class="form-input"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="e.g. pluscase@gmail.com"
+                        required
+                    >
+                </div>
+
+                <!-- ── PHONE ── -->
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <!--
+                        type="tel" is specifically for phone numbers.
+                        On mobile phones this opens the numeric keypad.
+                        pattern="[0-9]{10}" means exactly 10 digits only.
+                    -->
+                    <input
+                        class="form-input"
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="e.g. 0712345678"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </div>
+
+                <!-- ── DATE ── -->
+                <div class="form-group">
+                    <label class="form-label" for="meeting-date">Preferred Meeting Date</label>
+                    <!--
+                        type="date" shows a calendar picker in the browser.
+                        The user clicks to choose a date — no typing needed.
+                    -->
+                    <input
+                        class="form-input"
+                        type="date"
+                        id="meeting-date"
+                        name="meeting_date"
+                    >
+                </div>
+
+                <!-- ── SEARCH BAR ── -->
+                <div class="form-group">
+                    <label class="form-label" for="search">Search Our Services</label>
+                    <!--
+                        type="search" is similar to text but
+                        shows a clear (×) button on some browsers,
+                        and is semantically correct for a search field.
+                    -->
+                    <input
+                        class="form-input"
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder="e.g. Website Design, SEO..."
+                    >
+                </div>
+
+                <!-- ── RADIO BUTTONS ──
+                     Radio buttons let the user pick ONLY ONE option.
+                     All radio buttons in a group share the same name="".
+                     The one selected sends its value="" to the server.
+                -->
+                <div class="form-group">
+                    <label class="form-label">Select a Service</label>
+
+                    <!-- .radio-group = CLASS — lays options out in a row -->
+                    <div class="radio-group">
+
+                        <!-- .option-item = CLASS — wraps each radio + label -->
+                        <label class="option-item">
+                            <input type="radio" name="service" value="design">
+                            Website Design
+                        </label>
+
+                        <label class="option-item">
+                            <input type="radio" name="service" value="development">
+                            Web Development
+                        </label>
+
+                        <label class="option-item">
+                            <input type="radio" name="service" value="seo">
+                            SEO
+                        </label>
+
+                        <label class="option-item">
+                            <input type="radio" name="service" value="marketing">
+                            Digital Marketing
+                        </label>
+
+                    </div>
+                    <!-- end .radio-group -->
+                </div>
+
+                <!-- ── CHECKBOXES ──
+                     Checkboxes let the user pick MULTIPLE options.
+                     Each checkbox has its own name="" and value="".
+                     Unlike radio buttons, they are all independent.
+                -->
+                <div class="form-group">
+                    <label class="form-label">How did you hear about us? (select all that apply)</label>
+
+                    <!-- .checkbox-group = CLASS — same styling as radio group -->
+                    <div class="checkbox-group">
+
+                        <label class="option-item">
+                            <input type="checkbox" name="source" value="google">
+                            Google Search
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" name="source" value="instagram">
+                            Instagram
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" name="source" value="friend">
+                            Friend / Referral
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" name="source" value="linkedin">
+                            LinkedIn
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" name="source" value="other">
+                            Other
+                        </label>
+
+                    </div>
+                    <!-- end .checkbox-group -->
+                </div>
+
+                <!-- ── FILE ATTACHMENT ──
+                     type="file" lets the user upload a document.
+                     accept=".pdf,.doc,.docx,.jpg,.png" restricts
+                     which file types are allowed.
+                     multiple means they can attach more than one file.
+                -->
+                <div class="form-group">
+                    <label class="form-label" for="attachment">Attach a File (optional)</label>
+                    <input
+                        class="file-input"
+                        type="file"
+                        id="attachment"
+                        name="attachment"
+                        accept=".pdf,.doc,.docx,.jpg,.png"
+                        multiple
+                    >
+                </div>
+
+                <!-- ── SUBMIT BUTTON ──
+                     type="submit" sends the form when clicked.
+                     The browser validates all "required" fields first.
+                     If any are empty or invalid, it shows an error
+                     and does NOT submit.
+                -->
+                <button type="submit" class="submit-btn">
+                    Submit Enquiry →
+                </button>
+
+            </form>
+            <!-- end form -->
+
+        </section>
+        <!-- end #form-section -->
+
+    </main>
+    <!-- end <main> -->
+
+
+    <!-- ════════════════════════════════════════════════
+         SEMANTIC ELEMENT: <footer>
+         The bottom of the page — copyright info, links,
+         contact details. Always at the very end of <body>.
+    ════════════════════════════════════════════════ -->
+    <footer>
+        <p>
+            <strong>NEXASITE Web Agency</strong> — Nairobi, Kenya
+        </p>
+        <p style="margin-top: 6px;">
+            info@nexasite.com &nbsp;|&nbsp; +254 700 000 000
+        </p>
+        <p style="margin-top: 6px;">
+            © 2026 NEXASITE. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
