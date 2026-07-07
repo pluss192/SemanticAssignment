@@ -1,477 +1,643 @@
 /* ============================================
    ASSIGNMENT — EXTERNAL STYLESHEET
-   styles.css
-
-   This file controls ALL visual styling.
-   The HTML file links to this using:
-   <link rel="stylesheet" href="styles.css">
-
-   CSS Rules follow this format:
-   selector { property: value; }
+   styles.css — Dark Glass Premium Design
+   Student: Pluscase Madoya | Daystar University
 ============================================ */
 
-/* ── GOOGLE FONT IMPORT ──
-   We load "Inter" from Google's font server.
-   This gives us a clean modern font without
-   installing anything.
-*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* ── UNIVERSAL RESET ──
-   By default browsers add spacing to elements.
-   We remove that so WE control all spacing ourselves.
+/* ── CSS VARIABLES ──
+   Variables store values we reuse everywhere.
+   Change one variable = changes the whole site.
+   Defined on :root so every element can access them.
 */
-* {
+:root {
+    --midnight:     #080C14;
+    --midnight2:    #0F1523;
+    --card:         #131B2E;
+    --glass:        rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+    --cyan:         #00D4FF;
+    --violet:       #7B5CFA;
+    --pink:         #FF4FCB;
+    --green:        #00E5A0;
+    --text:         #E8EBF4;
+    --muted:        #8892A4;
+    --white:        #FFFFFF;
+    --error:        #FF5C7A;
+    --radius:       16px;
+    --radius-sm:    10px;
+    --shadow:       0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* padding stays INSIDE the element width */
+    box-sizing: border-box;
 }
+
+html { scroll-behavior: smooth; }
 
 /* ── BODY ──
-   Sets the default look for the whole page.
+   Dark background with a subtle grid pattern.
 */
 body {
-    font-family: 'Inter', Arial, sans-serif; /* Inter first, Arial as fallback */
-    background: #f0f4ff;                     /* light blue-grey background */
-    color: #222;                              /* dark grey default text */
-    font-size: 16px;
-    line-height: 1.6;                         /* comfortable reading spacing */
+    font-family: 'Inter', sans-serif;
+    background: var(--midnight);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-/* ════════════════════════════════════════
-   SEMANTIC ELEMENT STYLES
-   We style the HTML5 semantic tags directly.
-   Semantic = tags that DESCRIBE their content,
-   not just how they look.
-════════════════════════════════════════ */
+/* Ambient glow blobs fixed behind everything */
+body::before {
+    content: '';
+    position: fixed;
+    top: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(123,92,250,0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
 
-/* ── <header> ── Top of the page */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ════════════════════════════════════
+   SEMANTIC ELEMENT STYLES
+════════════════════════════════════ */
+
+/* ── <header> ── */
 header {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: white;
+    position: relative;
     text-align: center;
-    padding: 50px 20px 30px;
+    padding: 100px 20px 80px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Rotating gradient mesh behind header text */
+header::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 800px; height: 450px;
+    background: conic-gradient(from 0deg, var(--cyan), var(--violet), var(--pink), var(--cyan));
+    filter: blur(110px);
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    animation: rotateMesh 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateMesh {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.header-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 7px 18px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+}
+
+.eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--cyan);
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
 }
 
 header h1 {
-    font-size: 42px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 7vw, 72px);
     font-weight: 700;
-    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    background: linear-gradient(120deg, #fff 0%, var(--cyan) 50%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
 }
 
 header p {
     font-size: 17px;
-    opacity: 0.85;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 300;
 }
 
-/* ── <nav> ── Navigation bar */
+/* ── <nav> ── */
 nav {
-    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,12,20,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 14px 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    position: sticky;  /* stays at top when scrolling */
-    top: 0;
-    z-index: 100;
+    gap: 4px;
+    padding: 12px 20px;
 }
 
 nav a {
     text-decoration: none;
-    color: #1e3a8a;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.2s; /* smooth hover effect */
+    color: var(--muted);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 18px;
+    border-radius: 30px;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
 }
 
 nav a:hover {
-    background: #1e3a8a;
-    color: white;
+    color: var(--white);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
 }
 
-/* ── <main> ── The main page content wrapper */
+/* ── <main> ── */
 main {
-    max-width: 960px;       /* never wider than 960px */
-    margin: 40px auto;      /* centred horizontally */
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 48px auto;
     padding: 0 20px;
 }
 
-/* ── <section> ── Each content block */
+/* ── <section> ── */
 section {
-    background: white;
-    border-radius: 14px;
-    padding: 36px 32px;
-    margin-bottom: 28px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    background: var(--card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 44px 40px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s;
 }
 
-/* ── <article> ── A self-contained piece of content */
+section:hover {
+    border-color: rgba(123,92,250,0.2);
+}
+
+/* ── <article> ── */
 article {
-    background: #f8faff;
-    border-left: 4px solid #2563eb; /* blue left border to stand out */
-    padding: 20px 24px;
-    border-radius: 0 10px 10px 0;
-    margin-bottom: 16px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    transition: background 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--cyan), var(--violet));
+    border-radius: 3px 0 0 3px;
+}
+
+article:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(0,212,255,0.2);
 }
 
 article h3 {
-    color: #1e3a8a;
-    margin-bottom: 6px;
-    font-size: 18px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 10px 0 6px;
 }
 
 article p {
-    color: #555;
+    color: var(--muted);
     font-size: 14px;
+    line-height: 1.7;
 }
 
-/* ── <aside> ── Side information / tip box */
+/* ── <aside> ── */
 aside {
-    background: #fffbeb;
-    border: 1px solid #fcd34d;
-    border-radius: 10px;
-    padding: 18px 22px;
+    background: rgba(0,229,160,0.06);
+    border: 1px solid rgba(0,229,160,0.18);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
     margin-bottom: 20px;
     font-size: 14px;
-    color: #78350f;
+    color: #6ee7b7;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+aside .aside-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
 }
 
 aside strong {
+    color: var(--green);
     display: block;
-    margin-bottom: 4px;
-    font-size: 15px;
+    margin-bottom: 3px;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-/* ── <figure> and <figcaption> ── Images with captions */
-figure {
-    margin: 0;
-    text-align: center;
-}
+/* ── <figure> and <figcaption> ── */
+figure { margin: 0; }
 
 figcaption {
-    font-size: 13px;
-    color: #888;
-    margin-top: 8px;
-    font-style: italic;
-}
-
-/* ── <footer> ── Bottom of the page */
-footer {
-    background: #111827;
-    color: #9ca3af;
-    text-align: center;
-    padding: 28px;
-    font-size: 13px;
-    margin-top: 40px;
-}
-
-footer strong {
-    color: white;
-}
-
-/* ── <time> ── Dates and times */
-time {
-    background: #dbeafe;
-    color: #1e3a8a;
     font-size: 12px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 10px;
+    color: var(--muted);
+    text-align: center;
+    padding: 10px 8px;
+    font-style: italic;
+    background: var(--card);
 }
 
-/* ── <mark> ── Highlighted text */
-mark {
-    background: #fef08a;
-    color: #713f12;
-    padding: 1px 5px;
-    border-radius: 3px;
+/* ── <footer> ── */
+footer {
+    position: relative;
+    z-index: 1;
+    background: var(--midnight2);
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
 }
 
-/* ════════════════════════════════════════
-   ID STYLES
-   IDs are unique — only ONE element per page
-   can have a given ID. We select them with #
-   Example: #page-title { ... }
-════════════════════════════════════════ */
-
-/* The main heading inside a section */
-#page-title {
-    font-size: 28px;
+footer .footer-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
     font-weight: 700;
-    color: #1e3a8a;
+    background: linear-gradient(120deg, var(--cyan), var(--violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 8px;
-    text-align: center;
 }
 
-/* The about section specifically */
-#about {
-    border-top: 4px solid #2563eb;
+footer p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
 }
 
-/* The gallery section */
-#gallery {
-    text-align: center;
-}
-
-/* The form section */
-#form-section {
-    background: linear-gradient(to bottom, #f8faff, white);
-}
-
-/* ════════════════════════════════════════
-   CLASS STYLES
-   Classes can be used on MANY elements.
-   We select them with a dot.
-   Example: .card { ... }
-════════════════════════════════════════ */
-
-/* ── .section-title ── Heading at top of each section */
-.section-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1e3a8a;
-    margin-bottom: 6px;
-}
-
-/* ── .section-sub ── Subtitle under a section title */
-.section-sub {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 28px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-/* ── .badge ── Small coloured label */
-.badge {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
+/* ── <time> ── */
+time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 11px;
     font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 20px;
-    margin-bottom: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--cyan);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
 }
 
-/* ── .img-grid ── 3-column image layout */
-.img-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 16px;
-    margin-bottom: 10px;
+/* ── <mark> ── */
+mark {
+    background: linear-gradient(120deg, rgba(0,212,255,0.2), rgba(123,92,250,0.2));
+    color: var(--cyan);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
-/* ── .img-card ── Each image container */
-.img-card {
-    border-radius: 12px;
-    overflow: hidden;            /* keeps image inside rounded corners */
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    transition: transform 0.3s;  /* smooth zoom effect on hover */
-    background: #e2e8f0;         /* shows while image loads */
+/* ════════════════════════════════════
+   ID STYLES
+   # = targets ONE unique element
+════════════════════════════════════ */
+
+#page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(120deg, var(--white), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
 }
 
-.img-card:hover {
-    transform: scale(1.03); /* slight zoom on hover */
-}
+#about { border-top: 2px solid var(--violet); }
+#gallery { text-align: center; }
+#form-section { background: linear-gradient(160deg, var(--card), var(--midnight2)); }
 
-/* ── .img-card img ── The actual image inside the card */
-.img-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;  /* crop image to fill without stretching */
-    display: block;
-    /* IMAGE LOADING — lazy loading is in the HTML attribute,
-       but we add a smooth fade-in via animation */
-    animation: fadeIn 0.6s ease;
-}
+/* ════════════════════════════════════
+   CLASS STYLES
+   . = reusable on many elements
+════════════════════════════════════ */
 
-/* Fade-in animation for images when they load */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── .img-placeholder ── Shows while image is loading ──
-   When loading="lazy" is set, the browser delays loading
-   the image until the user scrolls near it. This class
-   gives the box a visible size so the layout doesn't jump.
-*/
-.img-card {
-    min-height: 200px;
-}
-
-/* ── .form-group ── Wraps each label + input pair */
-.form-group {
-    margin-bottom: 18px;
-}
-
-/* ── .form-label ── The text label above each input */
-.form-label {
-    display: block;             /* forces it onto its own line */
-    font-size: 13px;
-    font-weight: 600;
-    color: #1e3a8a;
-    margin-bottom: 6px;
-    letter-spacing: 0.03em;
-}
-
-/* ── .form-input ── Every text/email/phone/date/search input */
-.form-input {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #222;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    background: white;
-}
-
-/* Blue glow when user clicks into a field */
-.form-input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
-}
-
-/* ── .form-row ── Puts two inputs side by side */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-/* ── .radio-group and .checkbox-group ── Option containers */
-.radio-group,
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 4px;
-}
-
-/* Each individual radio/checkbox option */
-.option-item {
-    display: flex;
+/* ── .badge ── */
+.badge {
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: #444;
-    cursor: pointer;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--violet);
+    background: rgba(123,92,250,0.1);
+    border: 1px solid rgba(123,92,250,0.25);
+    padding: 5px 14px;
+    border-radius: 30px;
+    margin-bottom: 14px;
 }
 
-/* Make radio and checkbox inputs bigger and blue */
-.option-item input[type="radio"],
-.option-item input[type="checkbox"] {
-    width: 17px;
-    height: 17px;
-    accent-color: #2563eb; /* colours the tick/dot blue */
-    cursor: pointer;
+/* ── .section-title ── */
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 4px;
 }
 
-/* ── .file-input ── File upload field styling */
-.file-input {
-    width: 100%;
-    padding: 12px;
-    border: 2px dashed #bfdbfe; /* dashed blue border */
-    border-radius: 8px;
-    font-size: 14px;
-    color: #2563eb;
-    background: #eff6ff;
-    cursor: pointer;
+/* ── .section-sub ── */
+.section-sub {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
 }
 
-.file-input:hover {
-    border-color: #2563eb;
-    background: #dbeafe;
-}
-
-/* ── .submit-btn ── The form submit button */
-.submit-btn {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(120deg, #1e3a8a, #2563eb);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: 'Inter', Arial, sans-serif;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-top: 8px;
-    letter-spacing: 0.03em;
-}
-
-.submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37,99,235,0.35);
-}
-
-/* ── .highlight-box ── A coloured callout box */
+/* ── .highlight-box ── */
 .highlight-box {
-    background: #dbeafe;
-    border-radius: 10px;
+    background: rgba(123,92,250,0.08);
+    border: 1px solid rgba(123,92,250,0.2);
+    border-radius: var(--radius-sm);
     padding: 18px 22px;
     margin-bottom: 20px;
-    color: #1e3a8a;
     font-size: 15px;
+    color: var(--text);
+    line-height: 1.8;
 }
 
-/* ── .services-grid ── 3-column services layout */
+/* ── .services-grid ── 3 column grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-/* ── .service-card ── Each service box */
+/* ── .service-card ── */
 .service-card {
-    background: #f8faff;
-    border: 1px solid #dbeafe;
-    border-radius: 12px;
-    padding: 22px 18px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 26px 20px;
     text-align: center;
-    transition: box-shadow 0.2s;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .service-card:hover {
-    box-shadow: 0 6px 20px rgba(37,99,235,0.12);
+    transform: translateY(-6px);
+    border-color: rgba(0,212,255,0.3);
+    box-shadow: 0 16px 40px rgba(0,212,255,0.1);
 }
 
+.service-card:hover::after { opacity: 1; }
+
 .service-card .icon {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 34px;
+    margin-bottom: 12px;
+    display: block;
 }
 
 .service-card h4 {
-    color: #1e3a8a;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
     margin-bottom: 6px;
 }
 
 .service-card p {
     font-size: 13px;
-    color: #666;
+    color: var(--muted);
+    line-height: 1.6;
 }
 
-/* ── MOBILE RESPONSIVE ──
-   On small screens (phones), switch from 3 columns
-   to 1 column so content doesn't overflow.
-*/
+/* ── .img-grid ── 3-column image layout */
+.img-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* ── .img-card ── */
+.img-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: var(--card);
+    transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+    cursor: pointer;
+}
+
+.img-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(0,212,255,0.2);
+    border-color: rgba(0,212,255,0.4);
+}
+
+.img-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    animation: fadeImg 0.7s ease;
+}
+
+@keyframes fadeImg {
+    from { opacity: 0; transform: scale(1.04); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── FORM STYLES ── */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-label {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.form-input::placeholder { color: rgba(136,146,164,0.5); }
+
+.form-input:focus {
+    border-color: var(--cyan);
+    background: rgba(0,212,255,0.04);
+    box-shadow: 0 0 0 3px rgba(0,212,255,0.12);
+}
+
+/* Radio and checkbox container */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+/* Each option pill */
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 9px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-item:hover {
+    color: var(--white);
+    border-color: var(--violet);
+    background: rgba(123,92,250,0.1);
+}
+
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--cyan);
+    cursor: pointer;
+}
+
+/* File upload */
+.file-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(0,212,255,0.04);
+    border: 2px dashed rgba(0,212,255,0.25);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    color: var(--cyan);
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.file-input:hover {
+    border-color: var(--cyan);
+    background: rgba(0,212,255,0.08);
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(120deg, var(--cyan), var(--violet));
+    color: var(--midnight);
+    border: none;
+    border-radius: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 8px 28px rgba(123,92,250,0.35);
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(123,92,250,0.5);
+}
+
+/* ── MOBILE ── */
 @media (max-width: 700px) {
+    section { padding: 28px 22px; }
     .form-row { grid-template-columns: 1fr; }
-    .img-grid  { grid-template-columns: 1fr; }
+    .img-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
-    header h1 { font-size: 28px; }
+    header { padding: 70px 20px 50px; }
 }
